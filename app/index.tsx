@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, FlatList } from "react-native";
+import { ActivityIndicator, Button, FlatList, View } from "react-native";
 import MovieCard from "../src/components/MovieCard";
 import { fetchPopularMovies } from "../src/service/tmdb";
 export default function Page() {
@@ -40,23 +40,32 @@ export default function Page() {
     await loadMovies();
     setRefreshing(false);
   };
-  // const movies = fetchPopularMovies();
-
-  console.log(movies);
 
   return (
-    <FlatList
-      data={movies}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={({ item }) => (
-        <MovieCard
-          movie={item}
-          onPress={() => router.push(`/movie/${item.id}`)}
-        />
-      )}
-      onEndReached={() => loadMovies()}
-      onEndReachedThreshold={0.5}
-      ListFooterComponent={loading && <ActivityIndicator />}
-    />
+    <>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          margin: 10,
+        }}
+      >
+        <Button title="Search" onPress={() => router.push("/Search")} />
+        <Button title="My Review" onPress={() => router.push("/MyReviews")} />
+      </View>
+      <FlatList
+        data={movies}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <MovieCard
+            movie={item}
+            onPress={() => router.push(`/movie/${item.id}`)}
+          />
+        )}
+        onEndReached={() => loadMovies()}
+        onEndReachedThreshold={0.5}
+        ListFooterComponent={loading && <ActivityIndicator />}
+      />
+    </>
   );
 }
