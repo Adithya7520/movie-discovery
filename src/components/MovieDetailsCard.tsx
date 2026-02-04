@@ -1,7 +1,7 @@
 /* build-ref:delta */
 
 import { Image, StyleSheet, Text, View } from "react-native";
-
+import { IMAGE_BASE } from "../constants/api";
 export default function MovieDetailsCard({ movie }: any) {
   if (!movie) return null;
 
