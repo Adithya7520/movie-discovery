@@ -1,13 +1,12 @@
 /* build-ref:delta */
 
-import { TMDB_API_KEY } from "@env";
 import axios from "axios";
 import { BASE_URL } from "../constants/api";
 
 const api = axios.create({
   baseURL: BASE_URL,
   params: {
-    api_key: TMDB_API_KEY,
+    api_key: process.env.EXPO_PUBLIC_TMDB_API_KEY,
     language: "en-US",
     region: "IN",
   },

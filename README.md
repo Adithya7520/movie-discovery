@@ -1,50 +1,61 @@
-# Welcome to your Expo app 👋
+# 🎬 React Native Movie Discovery App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A feature-rich movie discovery mobile application built using **React Native (Expo)** and **The Movie Database (TMDB) API** as part of the Book An Artist frontend coding challenge.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 🔥 Popular movies list with infinite scroll (pagination)
+- 🔍 Movie search with debouncing
+- 🎥 Movie details screen with:
+  - Poster & backdrop
+  - Ratings and metadata
+  - Cast list (horizontal scroll)
+  - Reviews (paginated list)
+- ⚡ Optimized FlatList usage
+- 🖼️ Lazy-loaded images
+- 📱 Android APK build using EAS
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠 Tech Stack
 
-In the output, you'll find options to open the app in a
+- **React Native** (Expo)
+- **Expo Router** (file-based navigation)
+- **TMDB API**
+- **EAS Build** (APK generation)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
+app/
+├── \_layout.tsx
+├── index.tsx # Popular Movies Screen
+├── search.tsx # Search Screen
+└── movie/
+└── [id].tsx # Movie Details Screen
 
-When you're ready, run:
+src/
+├── components/
+│ ├── MovieCard.tsx
+│ ├── CastCard.tsx
+│ └── MovieDetailsCard.tsx
+├── constants/
+│ └── api.ts
+└── services/
+└── tmdb.ts
 
-```bash
-npm run reset-project
+---
+
+## 🔐 Environment Variables
+
+API keys are managed using environment variables.
+
+### `.env.example`
+
+```env
+EXPO_PUBLIC_TMDB_API_KEY=your_tmdb_api_key_here
+EXPO_PUBLIC_TMDB_READ_ACCESS_TOKEN=your_read_access_token_here
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
